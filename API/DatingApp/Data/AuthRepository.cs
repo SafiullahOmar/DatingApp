@@ -9,9 +9,9 @@ namespace DatingApp.Data
 {
     public class AuthRepository : IAuthRepository
     {
-        private readonly DataContext context;
+        private readonly ApplicationDbContext context;
 
-        public AuthRepository(DataContext context)
+        public AuthRepository(ApplicationDbContext context)
         {
             this.context = context;
         }

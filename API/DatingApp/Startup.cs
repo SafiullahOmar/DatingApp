@@ -36,13 +36,14 @@ namespace DatingApp
         public void ConfigureServices(IServiceCollection services)
         {
             
-            services.AddDbContext <DbContext> (options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
-            services.AddControllers();
+            services.AddDbContext<ApplicationDbContext>(x => x.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")));
 
-            services.AddMvc();
-
-            services.AddCors();
             services.AddScoped<IAuthRepository, AuthRepository>();
+            services.AddControllers();
+            services.AddMvc();
+         
+           
+            services.AddCors();
             services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
               .AddJwtBearer(options => {
                   options.TokenValidationParameters = new TokenValidationParameters

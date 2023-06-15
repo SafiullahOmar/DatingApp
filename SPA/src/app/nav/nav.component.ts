@@ -10,7 +10,7 @@ export class NavComponent implements OnInit {
   model:any={};
   constructor(private authService: AuthService) { }
   ngOnInit(): void {
-    throw new Error('Method not implemented.');
+
   }
 
   login() {
